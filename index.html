@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="d-flex justify-content-between my-3 bg-light p-3">
+      <div class="left"><h3>Kanban Board</h3></div>
+      <div class="right">
+        <button class="btn btn-primary">Add new Task</button>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="board gap-3 p-2 d-flex justify-content-between flex-grow-1">
+        <div id="todo" class="column flex-fill border p-2">
+          <div
+            class="heading d-flex justify-content-between align-items-center"
+          >
+            <div class="left">To Do</div>
+            <div class="right">Count</div>
+          </div>
+          <div class="task rounded d-flex flex-column" draggable="true">
+            <h4 class="task-title">Task 1</h4>
+            <p class="task-desc">Description for task 1</p>
+            <button class="btn btn-danger btn-sm">
+              <i class="bi bi-trash-fill"></i>
+            </button>
+          </div>
+        </div>
+        <div id="inProgress" class="column flex-fill border p-2">
+          <div
+            class="heading d-flex justify-content-between align-items-center"
+          >
+            <div class="left">In Progress</div>
+            <div class="right">Count</div>
+          </div>
+        </div>
+        <div id="completed" class="column flex-fill border p-2">
+          <div
+            class="heading d-flex justify-content-between align-items-center"
+          >
+            <div class="left">Completed</div>
+            <div class="right">Count</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
