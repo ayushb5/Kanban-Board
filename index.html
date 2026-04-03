@@ -17,43 +17,80 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <nav class="d-flex justify-content-between my-3 bg-light p-3">
+    <nav class="d-flex justify-content-between mb-3 bg-light p-3">
       <div class="left"><h3>Kanban Board</h3></div>
       <div class="right">
-        <button class="btn btn-primary">Add new Task</button>
+        <button
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#taskModal"
+        >
+          Add new Task
+        </button>
       </div>
     </nav>
     <div class="container">
       <div class="board gap-3 p-2 d-flex justify-content-between flex-grow-1">
-        <div id="todo" class="column flex-fill border p-2">
+        <div id="todo" class="column flex-fill border">
           <div
-            class="heading d-flex justify-content-between align-items-center"
+            class="heading p-2 d-flex justify-content-between align-items-center"
           >
             <div class="left">To Do</div>
             <div class="right">Count</div>
           </div>
-          <div class="task rounded d-flex flex-column" draggable="true">
-            <h4 class="task-title">Task 1</h4>
-            <p class="task-desc">Description for task 1</p>
-            <button class="btn btn-danger btn-sm">
-              <i class="bi bi-trash-fill"></i>
-            </button>
-          </div>
         </div>
-        <div id="inProgress" class="column flex-fill border p-2">
+        <div id="inProgress" class="column flex-fill border">
           <div
-            class="heading d-flex justify-content-between align-items-center"
+            class="heading p-2 d-flex justify-content-between align-items-center"
           >
             <div class="left">In Progress</div>
             <div class="right">Count</div>
           </div>
         </div>
-        <div id="completed" class="column flex-fill border p-2">
+        <div id="completed" class="column flex-fill border">
           <div
-            class="heading d-flex justify-content-between align-items-center"
+            class="heading p-2 d-flex justify-content-between align-items-center"
           >
             <div class="left">Completed</div>
             <div class="right">Count</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal to add task -->
+      <div class="modal fade" id="taskModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header justify-content-center">
+              <h3 class="modal-title">Add new Task</h3>
+            </div>
+            <div class="modal-body">
+              <div class="field mb-3">
+                <label for="newTask" class="form-label">Task Title</label>
+                <input type="text" class="form-control" id="taskTitle" />
+                <span class="text-danger" id="titleError"></span>
+              </div>
+              <div class="field mb-3">
+                <label for="taskDesc" class="form-label"
+                  >Task Description</label
+                >
+                <input type="text" class="form-control" id="taskDesc" />
+                <span class="text-danger" id="descError"></span>
+              </div>
+
+              <div class="gap-2 d-flex justify-content-end">
+                <button
+                  class="btn btn-danger"
+                  data-bs-dismiss="modal"
+                  onclick="handleReset()"
+                >
+                  Cancel
+                </button>
+                <button class="btn btn-success" id="addNewTask">
+                  Add Task
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
