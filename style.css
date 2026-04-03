@@ -11,12 +11,15 @@ body {
 }
 
 .board {
-    height: 82vh;
+    height: 84vh;
 }
 
 .board .column {
     border-radius: 10px;
     transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+    width: 100%;
+    overflow-y: auto;
+    padding: 0 8px;
 }
 
 .board .column.hover {
@@ -29,6 +32,11 @@ body {
     padding: 5px;
     background-color: whitesmoke;
     cursor: grab;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .board .column .task:active {
@@ -42,4 +50,17 @@ body {
 
 .board .column .task button {
     align-self: flex-end;
+}
+
+.board .column .heading {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 10;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+    height: 3rem;
+    /* explicit height */
+    margin: 0;
+    line-height: 3rem;
 }
